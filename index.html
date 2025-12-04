@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <title>ERFLORA · Floral Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Erflora — Seasonal floral studio offering bespoke bouquets, event florals, and weekly arrangements." />
+  <meta
+    name="description"
+    content="Erflora — a seasonal floral studio led by Erika, creating thoughtful designs for weddings, memorials, anniversaries, and events."
+  />
 
   <style>
     :root {
@@ -14,25 +17,38 @@
       --accent-soft: #d7dfc5;
       --accent-strong: #5a6b4b;
       --text: #2f2f2f;
-      --muted: #666;
-      --radius-md: 0.85rem;
-      --shadow-soft: 0 10px 25px rgba(0,0,0,0.06);
+      --muted: #666666;
+      --border-subtle: #e3ded5;
+      --radius-md: 0.9rem;
+      --radius-lg: 1.5rem;
+      --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.06);
       --max-width: 1050px;
     }
 
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-      background: radial-gradient(circle at top, #ffffff 0, #f8f6f3 55%, #f0ede7 100%);
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #fdfbf7 0, #f5f1ea 40%, #f3efe7 100%);
       color: var(--text);
-      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout wrapper */
 
     .page {
       min-height: 100vh;
@@ -40,58 +56,67 @@
       flex-direction: column;
     }
 
+    .shell {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header */
+
     header {
       position: sticky;
       top: 0;
-      z-index: 40;
+      z-index: 10;
       backdrop-filter: blur(14px);
-      background: rgba(248, 246, 243, 0.92);
-      border-bottom: 1px solid rgba(143, 151, 121, 0.15);
+      background: rgba(248, 246, 243, 0.88);
+      border-bottom: 1px solid rgba(227, 222, 213, 0.7);
     }
 
-    .nav {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0.85rem 1.25rem;
+    .header-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1.5rem;
+      padding: 0.9rem 1.5rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
     }
 
     .brand {
       display: flex;
       flex-direction: column;
-      gap: 0.12rem;
+      gap: 0.1rem;
     }
 
     .brand-title {
-      letter-spacing: 0.16em;
-      font-size: 0.85rem;
+      font-size: 1.05rem;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
-      font-weight: 600;
       color: var(--accent-strong);
     }
 
     .brand-subtitle {
-      font-size: 0.75rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       color: var(--muted);
     }
 
-    .nav-links {
+    nav {
       display: flex;
-      gap: 1.25rem;
-      font-size: 0.85rem;
+      gap: 1.2rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
     }
 
-    .nav-links a {
-      text-decoration: none;
-      color: var(--muted);
+    nav a {
       position: relative;
       padding-bottom: 0.1rem;
     }
 
-    .nav-links a::after {
+    nav a::after {
       content: "";
       position: absolute;
       left: 0;
@@ -102,494 +127,621 @@
       transition: width 0.18s ease-out;
     }
 
-    .nav-links a:hover::after {
+    nav a:hover::after {
       width: 100%;
     }
 
-    .nav-links a.primary-link {
-      color: var(--accent-strong);
-      font-weight: 500;
-    }
-
-    main {
-      flex: 1;
-    }
-
-    .hero-shell {
-      max-width: var(--max-width);
-      margin: 1.75rem auto 3rem;
-      padding: 0 1.25rem;
-    }
+    /* Hero */
 
     .hero {
-      background: var(--bg-alt);
-      border-radius: 1.5rem;
-      box-shadow: var(--shadow-soft);
-      padding: 1.75rem 1.75rem 1.85rem;
+      padding: 3.5rem 0 3rem;
+    }
+
+    .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      gap: 2rem;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 3rem;
       align-items: center;
-      border: 1px solid rgba(143, 151, 121, 0.18);
     }
 
-    .hero-copy-eyebrow {
-      font-size: 0.8rem;
+    .hero-copy .eyebrow {
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--accent-strong);
-      margin-bottom: 0.65rem;
-    }
-
-    .hero-title {
-      font-size: clamp(2rem, 2.6vw, 2.4rem);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
-    }
-
-    .hero-subtitle {
-      font-size: 0.98rem;
-      color: var(--muted);
-      margin-bottom: 1.25rem;
-      max-width: 32rem;
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-bottom: 1.5rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .pill {
-      padding: 0.4rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(143, 151, 121, 0.35);
-      background: rgba(215, 223, 197, 0.22);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
       font-size: 0.78rem;
-      color: var(--accent-strong);
+      color: var(--muted);
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(2.2rem, 3vw, 2.7rem);
+      line-height: 1.05;
+      margin: 0 0 1rem;
+    }
+
+    .hero-copy .lead {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 1.7rem;
+    }
+
+    .hero-copy .note {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 0.8rem;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
-      align-items: center;
+      gap: 0.8rem;
     }
 
-    .btn {
-      border-radius: 999px;
-      padding: 0.7rem 1.3rem;
-      font-size: 0.88rem;
-      border: none;
-      cursor: pointer;
+    .button-primary,
+    .button-ghost {
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
-      text-decoration: none;
-      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, background 0.15s ease-out;
-      white-space: nowrap;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid transparent;
+      cursor: pointer;
+      background: transparent;
     }
 
-    .btn-primary {
-      background: linear-gradient(120deg, #8f9779, #5a6b4b);
-      color: white;
-      box-shadow: 0 14px 30px rgba(90, 107, 75, 0.28);
+    .button-primary {
+      background: var(--accent-strong);
+      color: #ffffff;
+      box-shadow: var(--shadow-soft);
     }
 
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 35px rgba(90, 107, 75, 0.32);
-    }
-
-    .btn-ghost {
-      background: rgba(248,246,243,0.85);
+    .button-ghost {
+      border-color: var(--accent-soft);
       color: var(--accent-strong);
-      border: 1px solid rgba(143,151,121,0.45);
+      background: #faf7f2;
     }
 
-    .btn-ghost:hover {
-      background: rgba(215,223,197,0.45);
-    }
-
-    .hero-note {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-top: 0.4rem;
+    .hero-photo {
+      position: relative;
     }
 
     .hero-photo-card {
-      background: radial-gradient(circle at top left, #d7dfc5 0, #f8f6f3 46%, #ffffff 100%);
-      border-radius: 1.25rem;
-      padding: 0.85rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      border: 1px solid rgba(143, 151, 121, 0.3);
-    }
-
-    .hero-photo-inner {
-      position: relative;
-      border-radius: 1rem;
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
       overflow: hidden;
-      aspect-ratio: 4/5;
-      background: #eee;
+      position: relative;
     }
 
-    /* This is the key: Erika's photo */
-    .hero-photo-inner img {
+    .hero-photo-card img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
+      aspect-ratio: 4 / 5;
     }
 
-    .hero-photo-tag {
+    .hero-tag {
       position: absolute;
-      left: 0.9rem;
-      bottom: 0.9rem;
-      background: rgba(0,0,0,0.55);
-      color: #f9f7f2;
-      padding: 0.32rem 0.65rem;
+      left: 1.2rem;
+      bottom: 1.2rem;
+      padding: 0.45rem 0.9rem;
       border-radius: 999px;
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .hero-photo-caption {
+      background: rgba(248, 246, 243, 0.9);
+      backdrop-filter: blur(10px);
       font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .hero-photo-caption strong {
-      color: var(--accent-strong);
-      font-weight: 600;
-    }
-
-    .hero-photo-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.35rem;
-    }
-
-    .hero-photo-meta span {
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-
-    .section-shell {
-      max-width: var(--max-width);
-      margin: 0 auto 3rem;
-      padding: 0 1.25rem;
-    }
-
-    .section-card {
-      background: var(--bg-alt);
-      border-radius: 1.25rem;
-      padding: 1.6rem 1.7rem 1.9rem;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(143,151,121,0.18);
-    }
-
-    .section-heading {
-      font-size: 0.9rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--accent-strong);
-      margin-bottom: 0.9rem;
     }
 
-    .section-title {
-      font-size: 1.25rem;
-      margin-bottom: 0.85rem;
+    /* Sections */
+
+    section {
+      padding: 3.25rem 0;
     }
 
-    .section-intro {
-      font-size: 0.95rem;
+    .section-heading {
+      text-align: center;
+      margin-bottom: 1.6rem;
+    }
+
+    .section-heading h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-heading p {
+      margin: 0;
       color: var(--muted);
-      max-width: 40rem;
-      margin-bottom: 1.4rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.25rem;
-    }
-
-    .tile {
-      background: radial-gradient(circle at top, rgba(215,223,197,0.45) 0, #ffffff 55%);
-      border-radius: 1rem;
-      padding: 1.05rem;
-      border: 1px solid rgba(143,151,121,0.18);
-      font-size: 0.9rem;
-    }
-
-    .tile h3 {
       font-size: 0.95rem;
-      margin-bottom: 0.5rem;
+    }
+
+    /* About */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      line-height: 1.7;
+      color: var(--muted);
+      margin: 0 0 1rem;
+      font-size: 0.98rem;
+    }
+
+    .about-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-md);
+      padding: 1.4rem 1.5rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .about-card strong {
       color: var(--accent-strong);
     }
 
-    .tile p {
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
+    /* Gallery */
 
-    .fine-print {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-top: 1.2rem;
-    }
-
-    .contact-row {
-      display: flex;
-      flex-wrap: wrap;
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 1.5rem;
-      margin-top: 1.2rem;
-      font-size: 0.9rem;
     }
 
-    .contact-col {
-      flex: 1 1 220px;
+    .gallery-item {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--bg-alt);
+      box-shadow: var(--shadow-soft);
+      position: relative;
     }
 
-    .contact-col strong {
-      display: block;
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 4 / 5;
+      transition: transform 0.4s ease-out;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.03);
+    }
+
+    .gallery-label {
+      position: absolute;
+      left: 0.9rem;
+      bottom: 0.9rem;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.38);
+      color: #fff;
       font-size: 0.78rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--accent-strong);
-      margin-bottom: 0.25rem;
     }
 
-    footer {
-      padding: 1.5rem 1.25rem 2.5rem;
-      font-size: 0.78rem;
+    /* Services */
+
+    .services-wrap {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2.4rem;
+      align-items: start;
+    }
+
+    .services-list {
+      display: grid;
+      gap: 1.1rem;
+    }
+
+    .service-item {
+      background: var(--bg-alt);
+      border-radius: var(--radius-md);
+      padding: 1.2rem 1.25rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.04);
+    }
+
+    .service-item h3 {
+      font-size: 1rem;
+      margin: 0 0 0.4rem;
+    }
+
+    .service-item p {
+      margin: 0;
+      font-size: 0.92rem;
       color: var(--muted);
     }
 
-    .footer-inner {
-      max-width: var(--max-width);
+    .service-meta {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--accent-strong);
+    }
+
+    .services-note {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* Contact */
+
+    .contact-card {
+      max-width: 680px;
       margin: 0 auto;
+      background: var(--bg-alt);
+      border-radius: var(--radius-md);
+      padding: 1.8rem 1.7rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      text-align: left;
+    }
+
+    .contact-card p {
+      margin: 0 0 1rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .contact-rows {
+      display: grid;
+      gap: 0.6rem;
+      margin-bottom: 1.1rem;
+      font-size: 0.92rem;
+    }
+
+    .contact-label {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .contact-value a {
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    .contact-actions {
       display: flex;
-      justify-content: space-between;
       flex-wrap: wrap;
       gap: 0.75rem;
-      border-top: 1px solid rgba(143,151,121,0.25);
-      padding-top: 1rem;
+      margin-top: 0.75rem;
     }
 
-    .footer-inner a {
+    /* Footer */
+
+    footer {
+      padding: 1.7rem 0 2.2rem;
+      border-top: 1px solid rgba(227, 222, 213, 0.9);
+      margin-top: 2rem;
+    }
+
+    footer p {
+      text-align: center;
+      margin: 0;
+      font-size: 0.82rem;
       color: var(--muted);
-      text-decoration: none;
     }
 
-    .footer-inner a:hover {
-      text-decoration: underline;
-    }
+    /* Responsive */
 
-    @media (max-width: 860px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
+    @media (max-width: 900px) {
+      .hero-grid,
+      .about-grid,
+      .services-wrap {
+        grid-template-columns: 1fr;
       }
 
-      .hero-photo-card {
+      .hero-photo {
         order: -1;
       }
 
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
+      .header-inner {
+        padding-inline: 1rem;
       }
 
-      .nav-links {
-        flex-wrap: wrap;
+      .brand-title {
+        font-size: 0.95rem;
       }
 
-      .grid {
-        grid-template-columns: minmax(0, 1fr);
+      nav {
+        gap: 0.9rem;
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 2.4rem;
+      }
+
+      .shell {
+        padding-inline: 1.25rem;
+      }
+
+      nav {
+        display: none; /* hides nav on very small screens; simple for now */
       }
     }
   </style>
 </head>
+
 <body>
   <div class="page">
+    <!-- Header -->
     <header>
-      <nav class="nav">
+      <div class="header-inner">
         <div class="brand">
-          <span class="brand-title">ERFLORA</span>
-          <span class="brand-subtitle">Seasonal floral studio · Philadelphia</span>
+          <div class="brand-title">ERFLORA</div>
+          <div class="brand-subtitle">Floral Studio · Philadelphia</div>
         </div>
-        <div class="nav-links">
-          <a href="#about" class="primary-link">About</a>
+        <nav>
+          <a href="#about">About</a>
+          <a href="#gallery">Portfolio</a>
           <a href="#services">Services</a>
-          <!-- Menu & shop live on their own pages / subfolders -->
-          <a href="menu/index.html">Menu</a>
-          <a href="shop/index.html">Shop</a>
           <a href="#contact">Contact</a>
-        </div>
-      </nav>
+        </nav>
+      </div>
     </header>
 
     <main>
-      <!-- HERO WITH ERIKA PHOTO -->
-      <section class="hero-shell">
-        <div class="hero">
-          <div>
-            <div class="hero-copy-eyebrow">Seasonal florals, thoughtfully composed</div>
-            <h1 class="hero-title">A travel-tuned eye for every arrangement.</h1>
-            <p class="hero-subtitle">
-              Erflora is a floral studio led by Erika, a Princeton graduate who traded a traditional career path
-              for years of travel, study, and hands-on work with designers around the world—before building her own
-              studio back home.
-            </p>
-
-            <div class="hero-meta">
-              <span class="pill">Weddings &amp; celebrations</span>
-              <span class="pill">Sympathy &amp; remembrance</span>
-              <span class="pill">Weekly florals for home &amp; business</span>
+      <!-- Hero -->
+      <section class="hero">
+        <div class="shell">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <p class="eyebrow">Seasonal floral studio</p>
+              <h1>Thoughtful flowers for weddings, memorials, anniversaries & everyday moments.</h1>
+              <p class="lead">
+                Erflora is a studio led by Erika, a Princeton graduate who chose
+                the quiet joy of flowers and travel over a traditional career path.
+                Each arrangement is designed in conversation with the people, the
+                place, and the season it’s created for.
+              </p>
+              <div class="hero-actions">
+                <a href="#services" class="button-primary">View services</a>
+                <a href="#contact" class="button-ghost">Request a date</a>
+              </div>
+              <p class="note">
+                Serving the greater Philadelphia region · studio-based, by appointment only.
+              </p>
             </div>
 
-            <div class="hero-actions">
-              <a href="#contact" class="btn btn-primary">
-                Inquire for your date →
-              </a>
-              <a href="about/index.html" class="btn btn-ghost">
-                Read Erika’s story
-              </a>
-            </div>
-            <p class="hero-note">
-              One studio, working with a limited number of events per week for truly bespoke work.
-            </p>
-          </div>
-
-          <aside class="hero-photo-card">
-            <div class="hero-photo-inner">
-              <!-- IMPORTANT: afd.jpg must sit next to index.html in your repo -->
-              <img src="afd.jpg" alt="Erika, founder and floral designer at Erflora" />
-              <div class="hero-photo-tag">Erika · Founder &amp; florist</div>
-            </div>
-            <div class="hero-photo-caption">
-              <strong>Princeton-educated, globally inspired.</strong> Erika spent years traveling, apprenticing, and
-              building a visual library of color and texture before choosing this work as her career—and her way of
-              caring for people.
-              <div class="hero-photo-meta">
-                <span>• Based in Philadelphia</span>
-                <span>• Traveling for weddings &amp; events</span>
+            <div class="hero-photo">
+              <div class="hero-photo-card">
+                <!-- Main hero image -->
+                <img src="abc.jpg" alt="Erflora bouquet styled in the studio" />
+                <div class="hero-tag">Erika · Erflora Studio</div>
               </div>
             </div>
-          </aside>
+          </div>
         </div>
       </section>
 
-      <!-- ABOUT / PHILOSOPHY -->
-      <section id="about" class="section-shell">
-        <div class="section-card">
-          <div class="section-heading">Studio philosophy</div>
-          <h2 class="section-title">Flowers that feel like they belong to your story.</h2>
-          <p class="section-intro">
-            Every arrangement at Erflora begins with people, not palettes. Erika’s background in literature and travel
-            shapes how she listens to your story and translates it into flowers—pulling from seasonal stems, subtle
-            textures, and small, layered details that reward a second look.
-          </p>
-          <div class="grid">
-            <article class="tile">
-              <h3>Weddings &amp; celebrations</h3>
-              <p>
-                From intimate city hall ceremonies to full weekend celebrations, we design florals that feel like
-                an extension of your relationship, your space, and the way you actually live and gather.
-              </p>
-            </article>
-            <article class="tile">
-              <h3>Sympathy &amp; funerals</h3>
-              <p>
-                Gentle, thoughtful pieces for moments of loss—built around your memories, favorite flowers, and the
-                feeling you want to hold onto, rather than a template.
-              </p>
-            </article>
-            <article class="tile">
-              <h3>Weekly florals &amp; subscriptions</h3>
-              <p>
-                Seasonal arrangements for homes, restaurants, and studios that shift alongside the markets and the
-                weather, bringing a quiet sense of rhythm to your space.
-              </p>
-            </article>
+      <!-- About -->
+      <section id="about">
+        <div class="shell">
+          <div class="section-heading">
+            <h2>About Erika & Erflora</h2>
+            <p>A studio built from study, travel, and a love of quiet details.</p>
           </div>
-          <p class="fine-print">
-            Detailed menus and price guides live in our <a href="menu/index.html">menu</a> and
-            <a href="services/index.html">services</a> pages. The homepage is simply a place to meet the studio.
-          </p>
+
+          <div class="about-grid">
+            <div class="about-text">
+              <p>
+                Erika studied at Princeton, but her favorite lessons came
+                outside the classroom — in greenhouses, flower markets, and
+                train stations while traveling. Rather than step into a
+                predictable path, she chose a studio life built around color,
+                texture, and the stories people tell through flowers.
+              </p>
+              <p>
+                Erflora began as a small practice making bouquets for friends
+                and family, evolving into a studio that now supports weddings,
+                memorials, anniversaries, and small-scale events. Every
+                arrangement is rooted in seasonality, using blooms that feel
+                natural to the moment rather than forced or overly staged.
+              </p>
+              <p>
+                The studio works with a limited number of events at a time so
+                that each design can be approached slowly and intentionally —
+                from a single stem on a bedside table to a ceremony installation.
+              </p>
+            </div>
+
+            <aside class="about-card">
+              <p><strong>Erflora is ideal for couples and families who:</strong></p>
+              <p>• Prefer seasonal flowers over strict color “themes”.</p>
+              <p>• Enjoy designs that feel garden-inspired, airy, and textural.</p>
+              <p>• Value intentional details over maximal scale.</p>
+              <p>• Want to work directly with the designer, not an order form.</p>
+            </aside>
+          </div>
         </div>
       </section>
 
-      <!-- CONTACT / INQUIRY -->
-      <section id="contact" class="section-shell">
-        <div class="section-card">
-          <div class="section-heading">Inquire</div>
-          <h2 class="section-title">Share your date, your venue, and a little of your story.</h2>
-          <p class="section-intro">
-            For weddings and large events, Erika personally reviews every inquiry before proposing a design direction.
-            For sympathy work and everyday florals, we offer a lighter-weight process with a focus on thoughtful,
-            seasonal stems.
-          </p>
+      <!-- Gallery -->
+      <section id="gallery">
+        <div class="shell">
+          <div class="section-heading">
+            <h2>Portfolio Highlights</h2>
+            <p>A small look at past work — each event and bouquet is unique to its day.</p>
+          </div>
 
-          <div class="contact-row">
-            <div class="contact-col">
-              <strong>Email</strong>
-              <p>
-                Prefer detailed notes, links, or inspiration boards?<br />
-                Reach us at: <a href="mailto:hello@erflora.com">hello@erflora.com</a>
-              </p>
+          <div class="gallery-grid">
+            <figure class="gallery-item">
+              <img src="apg.jpg" alt="Soft, romantic bouquet with seasonal flowers" />
+              <figcaption class="gallery-label">Bridal bouquet</figcaption>
+            </figure>
+
+            <figure class="gallery-item">
+              <img src="efg.jpg" alt="Table arrangement for an intimate dinner" />
+              <figcaption class="gallery-label">Tablescape</figcaption>
+            </figure>
+
+            <figure class="gallery-item">
+              <img src="hij.jpg" alt="Ceremony florals framing a couple" />
+              <figcaption class="gallery-label">Ceremony</figcaption>
+            </figure>
+
+            <figure class="gallery-item">
+              <img src="klm.jpg" alt="Seasonal flowers for a memorial" />
+              <figcaption class="gallery-label">Memorial</figcaption>
+            </figure>
+
+            <figure class="gallery-item">
+              <img src="nop.jpg" alt="Playful, bright arrangement for a celebration" />
+              <figcaption class="gallery-label">Celebration</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services -->
+      <section id="services">
+        <div class="shell">
+          <div class="section-heading">
+            <h2>Services</h2>
+            <p>Every project begins with a short conversation and a simple proposal.</p>
+          </div>
+
+          <div class="services-wrap">
+            <div class="services-list">
+              <article class="service-item">
+                <h3>Weddings & Elopements</h3>
+                <p>
+                  Custom florals for ceremonies, bridal bouquets, personals, and
+                  intimate receptions. Designs are fully tailored to your venue,
+                  season, and comfort with color.
+                </p>
+                <div class="service-meta">
+                  Typical investment: starting around $1,800 for small weddings.
+                </div>
+              </article>
+
+              <article class="service-item">
+                <h3>Memorial & Sympathy Florals</h3>
+                <p>
+                  Gentle, thoughtful arrangements for memorial services,
+                  celebrations of life, and family gatherings — with attention
+                  to favorite flowers, colors, and stories.
+                </p>
+                <div class="service-meta">
+                  Typical investment: from $350 for coordinated pieces.
+                </div>
+              </article>
+
+              <article class="service-item">
+                <h3>Anniversaries & Personal Bouquets</h3>
+                <p>
+                  One-of-a-kind bouquets and arrangements for anniversaries,
+                  birthdays, and meaningful milestones, delivered within the
+                  studio’s service area.
+                </p>
+                <div class="service-meta">
+                  Typical investment: from $125 per arrangement.
+                </div>
+              </article>
+
+              <article class="service-item">
+                <h3>Editorial & Small Events</h3>
+                <p>
+                  Florals for photo shoots, micro-events, and creative
+                  collaborations. Limited availability; ideal for slower, more
+                  experimental projects.
+                </p>
+                <div class="service-meta">
+                  Pricing by proposal based on scope.
+                </div>
+              </article>
             </div>
-            <div class="contact-col">
-              <strong>Inquiry form</strong>
+
+            <div class="services-note">
               <p>
-                For weddings &amp; events, share your date, venue, guest count, and a few words about the feeling you’re
-                hoping to create. We’ll respond with availability and next steps.
+                Every event and arrangement is priced individually. After you
+                share your date, location, and a few preferences, you’ll receive
+                a simple proposal outlining recommended pieces, a price range,
+                and how flowers can best support the tone of your day.
               </p>
-            </div>
-            <div class="contact-col">
-              <strong>Location</strong>
               <p>
-                Philadelphia-based studio, available for travel throughout the region and select destination events
-                by request.
+                The studio does not currently offer a public “menu” or online
+                shop — everything begins with a brief email and a few questions.
               </p>
             </div>
           </div>
+        </div>
+      </section>
 
-          <p class="fine-print">
-            Please allow 1–3 business days for a response during peak wedding season. For time-sensitive sympathy work,
-            note “urgent” in your subject line.
-          </p>
+      <!-- Contact -->
+      <section id="contact">
+        <div class="shell">
+          <div class="section-heading">
+            <h2>Contact</h2>
+            <p>Share your date, location, and a few words about what you’re planning.</p>
+          </div>
+
+          <div class="contact-card">
+            <p>
+              For availability and proposals, please reach out directly with your
+              event date, location, and a short note about what you’re envisioning.
+            </p>
+
+            <div class="contact-rows">
+              <div>
+                <div class="contact-label">Email</div>
+                <div class="contact-value">
+                  <a href="mailto:hello@erflora.studio">hello@erflora.studio</a>
+                  <!-- replace with your real email if different -->
+                </div>
+              </div>
+
+              <div>
+                <div class="contact-label">Location</div>
+                <div class="contact-value">
+                  Philadelphia, PA · available for nearby travel
+                </div>
+              </div>
+            </div>
+
+            <p>
+              If you’re not sure exactly what you need yet, a few sentences about
+              the feeling of the day — quiet, joyful, colorful, minimal — are
+              more helpful than a full Pinterest board.
+            </p>
+
+            <div class="contact-actions">
+              <a href="mailto:hello@erflora.studio?subject=Erflora%20Floral%20Inquiry"
+                 class="button-primary">
+                Email the studio
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </main>
 
     <footer>
-      <div class="footer-inner">
-        <span>© <span id="year"></span> Erflora · Floral Studio</span>
-        <span>
-          <a href="about/index.html">About Erika</a> ·
-          <a href="services/index.html">Services</a> ·
-          <a href="menu/index.html">Menu</a> ·
-          <a href="shop/index.html">Shop</a>
-        </span>
+      <div class="shell">
+        <p>© <span id="year"></span> Erflora · Floral Studio. All rights reserved.</p>
       </div>
     </footer>
   </div>
 
   <script>
-    // Small enhancement: keep year current
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // simple current year for footer
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>

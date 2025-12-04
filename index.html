@@ -61,9 +61,25 @@
     .menu-item{border-bottom:1px solid #eee;padding:.4rem 0;}
     .menu-item:last-child{border:none;}
 
+    /* PHOTO STRIP */
+    .photo-strip{
+      display:flex;
+      flex-wrap:wrap;
+      gap:0.75rem;
+      margin:2rem 0;
+    }
+    .photo-strip img{
+      width:32%;
+      border-radius:var(--radius-md);
+      box-shadow:var(--shadow-soft);
+      object-fit:cover;
+      max-height:230px;
+    }
+
     @media(max-width:800px){
       .hero{grid-template-columns:1fr;}
       .menu{grid-template-columns:1fr;}
+      .photo-strip img{width:100%;}
     }
   </style>
 </head>
@@ -100,6 +116,16 @@
     <p class="price">From $65</p>
     <a href="#shop" class="btn btn-primary">Order Now</a>
   </div>
+</section>
+
+<!-- PHOTO GALLERY -->
+<section class="photo-strip">
+  <img src="abc.jpg" alt="Erflora greenhouse eucalyptus plants">
+  <img src="apg.jpg" alt="Erflora colorful mums in greenhouse">
+  <img src="efg.jpg" alt="Erflora seedlings with dew">
+  <img src="hij.jpg" alt="Erflora hand-tied bouquet of seasonal flowers">
+  <img src="klm.jpg" alt="Erflora autumn pumpkins display at farm stand">
+  <img src="nop.jpg" alt="Erflora flower field by red barn">
 </section>
 
 <br>
@@ -216,3 +242,4 @@
 
 </body>
 </html>
+

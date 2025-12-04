@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ERFLORA · Floral Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Erflora — Seasonal floral studio offering bespoke bouquets, event florals, and weekly arrangements." />
+
+  <style>
+    :root {
+      --bg: #f8f6f3;
+      --bg-alt: #ffffff;
+      --accent: #8f9779;
+      --accent-soft: #d7dfc5;
+      --accent-strong: #5a6b4b;
+      --text: #2f2f2f;
+      --muted: #666;
+      --radius-md: 0.85rem;
+      --shadow-soft: 0 10px 25px rgba(0,0,0,0.06);
+      --max-width: 1050px;
+    }
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    img { max-width: 100%; }
+    header {
+      position: sticky; top:0; background:#fffceeb5;
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #eee; z-index:20;
+    }
+    nav { max-width:var(--max-width); margin:auto; padding:1rem;
+         display:flex; align-items:center; justify-content:space-between;}
+    nav a { margin:0 .6rem; text-decoration:none; color:var(--text); }
+    nav a:hover {color:var(--accent-strong);}
+    .brand{font-size:1rem;font-weight:bold;letter-spacing:.08em;}
+    main{max-width:var(--max-width);margin:auto;padding:2rem;}
+
+    /* HERO */
+    .hero {display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
+    h1 {font-size:2.3rem;margin-bottom:.5rem;}
+    .subtitle {color:var(--muted);font-size:.95rem;margin-bottom:1rem;}
+    .btn {padding:.7rem 1.3rem;border-radius:999px;text-decoration:none;
+         font-size:.9rem;border:none;cursor:pointer;}
+    .btn-primary{background:var(--accent);color:white;}
+    .btn-outline{border:1px solid var(--accent-soft);color:var(--accent-strong);}
+    .hero-card{background:white;padding:1.3rem;border-radius:var(--radius-md);
+              box-shadow:var(--shadow-soft);}
+
+    /* GRID CARDS */
+    .grid{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
+    .card{background:white;padding:1.2rem;border-radius:var(--radius-md);box-shadow:var(--shadow-soft);}
+    .price{color:var(--accent-strong);font-weight:bold;}
+
+    /* MENU */
+    .menu{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+    .menu-section{background:white;padding:1.2rem;border-radius:var(--radius-md);box-shadow:var(--shadow-soft);}
+    .menu-item{border-bottom:1px solid #eee;padding:.4rem 0;}
+    .menu-item:last-child{border:none;}
+
+    @media(max-width:800px){
+      .hero{grid-template-columns:1fr;}
+      .menu{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="brand">ERFLORA</div>
+    <div>
+      <a href="#home">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#menu">Menu</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div>
+    <h1>Seasonal Floral Design for Moments that Matter</h1>
+    <p class="subtitle">Handcrafted bouquets, weekly blooms, and romantic arrangements — designed with movement, balance, and feeling.</p>
+    <a href="#shop" class="btn btn-primary">Shop Bouquets</a>
+    <a href="#menu" class="btn btn-outline" style="margin-left:.5rem;">View Menu</a>
+  </div>
+
+  <div class="hero-card">
+    <h3>Signature Arrangement</h3>
+    <p>Fresh seasonal flowers arranged with your chosen palette.</p>
+    <p class="price">From $65</p>
+    <a href="#shop" class="btn btn-primary">Order Now</a>
+  </div>
+</section>
+
+<br>
+
+<!-- SHOP -->
+<section id="shop">
+  <h2>Online Shop</h2>
+  <p class="subtitle">Pickup & delivery available</p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Seasonal Bouquet</h3>
+      <p class="price">$45 / $65 / $95</p>
+      <p>Curated daily using the best available stems.</p>
+    </div>
+
+    <div class="card">
+      <h3>Vase Arrangement</h3>
+      <p class="price">From $120</p>
+      <p>Styled into a vessel — gift-ready beauty.</p>
+    </div>
+
+    <div class="card">
+      <h3>Custom Palette Design</h3>
+      <p class="price">From $85</p>
+      <p>You choose the tones, we create the art.</p>
+    </div>
+
+    <div class="card">
+      <h3>Weekly Subscription</h3>
+      <p class="price">From $40/week</p>
+      <p>Fresh rotating blooms for home or business.</p>
+    </div>
+  </div>
+</section>
+
+<br>
+
+<!-- MENU -->
+<section id="menu">
+  <h2>Flower Menu — Updated Weekly</h2>
+  <p class="subtitle">Available stems + color palette options</p>
+
+  <div class="menu">
+    <div class="menu-section">
+      <h3>Stems in Season</h3>
+      <div class="menu-item">Garden Roses — Blush, Peach</div>
+      <div class="menu-item">Ranunculus — Cream & Wine</div>
+      <div class="menu-item">Peonies — Soft Pink</div>
+      <div class="menu-item">Anemone — Black Center</div>
+    </div>
+
+    <div class="menu-section">
+      <h3>Palette Options</h3>
+      <div class="menu-item">Romantic Blush — $65–$150</div>
+      <div class="menu-item">Bright Citrus — $55–$140</div>
+      <div class="menu-item">Moody Bordeaux — $75–$175</div>
+      <div class="menu-item">Neutral Cream — $60–$160</div>
+    </div>
+  </div>
+</section>
+
+<br>
+
+<!-- SERVICES -->
+<section id="services">
+  <h2>Services & Pricing</h2>
+  <p class="subtitle">Event florals, weddings, and custom work available</p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Weddings & Elopements</h3>
+      <p class="price">From $950</p>
+      <p>Bridal bouquets · Installations · Full design</p>
+    </div>
+
+    <div class="card">
+      <h3>Event Floral Styling</h3>
+      <p class="price">From $450</p>
+      <p>For baby showers, dinners, parties, brands</p>
+    </div>
+
+    <div class="card">
+      <h3>Corporate / Restaurant</h3>
+      <p class="price">From $120/week</p>
+      <p>Weekly or bi-weekly floral refresh</p>
+    </div>
+  </div>
+</section>
+
+<br>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>About ERFLORA</h2>
+  <p>Erflora is a studio rooted in texture, tone, and the movement of natural growth. We design florals with emotion and intention, using seasonal stems and soft palettes.</p>
+</section>
+
+<br>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: <strong>hello@erflora.com</strong></p>
+  <p>Instagram: <strong>@erflora</strong></p>
+  <p>Studio Hours: Wed–Sun · 10am–5pm</p>
+</section>
+
+</main>
+
+<footer style="text-align:center;color:#777;padding:2rem;">
+  © 2025 ERFLORA — All rights reserved.
+</footer>
+
+</body>
+</html>
